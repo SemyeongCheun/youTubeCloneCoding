@@ -7,9 +7,9 @@ const videosRouter = express.Router();
 // /upload의 순서도 중요 변수 밑에 오면 express가 upload를 변수로 인식
 
 videosRouter.get("/upload", upload);
-videosRouter.get("/:id", see);
-videosRouter.get("/:id/edit", edit);
-videosRouter.get("/:id/delete", deleteVideo);
+videosRouter.get("/:id(\\d+)", see);
+videosRouter.get("/:id(\\d+)/edit", edit);
+videosRouter.get("/:id(\\d+)/delete", deleteVideo);
 
 
 
