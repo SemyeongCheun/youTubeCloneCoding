@@ -14,13 +14,12 @@ const logger = morgan("dev");
 //controler(req, res, next) req 요청 res 반응
 
 
-
+app.set("view engine", "pug")
+app.set("views", process.cwd() + "/src/views");
+app.use(logger);
 app.use("/", globalRouter);
 app.use("/videos", videosRouter);
 app.use("/user", userRouter);
-
-
-app.use(logger);
 
 
 //////////////////////////////////////////

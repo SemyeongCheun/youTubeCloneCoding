@@ -1,10 +1,10 @@
 import express from "express";
 
-export const trending = (req, res) => res.send("Home page Videos");
+export const trending = (req, res) => res.render("home", {pageTitle: "home"});
 export const see = (req, res) => {
-  return res.send(`Watch Video #${req.params.id}`)
+  res.render("watch", {videoId: (req.params.id)});
 };
-export const edit = (req, res) => res.send("Edit Video");
+export const edit = (req, res) => res.render("edit", {videoId: (req.params.id)});
 export const search = (req, res) => res.send("Search");
 export const deleteVideo = (req, res) => res.send("deleteVideo");
 export const upload = (req, res) => res.send("Upload");
