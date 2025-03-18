@@ -1,5 +1,13 @@
 extend base.pug
 
+//- 인라인 조건문 === 숫자 ? ㅇㅇ : ㅇㅇ
+//- href "a" 면 www.ooo.com/A/B -> www.ooo.com/A/a  relative url
+//- href "/a" 면 www.ooo.com/A/B -> www.ooo.com/a
+
 
 block content 
-  h1 Watch Video #{videoId}
+
+
+  h3 #{video.views} #{video.views === 1 ? "view" : "views"}
+  a(href=`${video.id}/edit`) Edit Video &rarr; 
+  h3 #{video.rating} rating
