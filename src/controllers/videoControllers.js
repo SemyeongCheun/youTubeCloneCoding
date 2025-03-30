@@ -1,44 +1,17 @@
-let videos = [
-  {
-    title: "first video",
-    rating: 5,
-    comments: 5,
-    createdAt: "2 minutes ago",
-    views: 1,
-    id: 1,
-  },
-  {
-    title: "second Video",
-    rating: 5,
-    comments: 5,
-    createdAt: "2 minutes ago",
-    views: 55,
-    id: 2,
-  },
-  {
-    title: "3th Video",
-    rating: 5,
-    comments: 5,
-    createdAt: "2 minutes ago",
-    views: 55,
-    id: 3,
-  },
-];
+import videoModel from "../models/video";
 
 // {}오브젝트 형태로 보낼때
 
-export const trending = (req, res) => {
-  return res.render("home", { pageTitle: "home", videos });
+export const home = (req, res) => {
+  return res.render("home", { pageTitle: "home" });
 };
 export const watch = (req, res) => {
   const { id } = req.params;
-  const video = videos[id - 1];
-  res.render("watch", { video, pageTitle: `Watching: ${video.title}` });
+  res.render("watch", { pageTitle: `Watching:` });
 };
 export const getEdit = (req, res) => {
   const { id } = req.params;
-  const video = videos[id - 1];
-  res.render("edit", { video, pageTitle: `Editing: ${video.title}` });
+  res.render("edit", { pageTitle: `Editing:` });
 };
 export const postEdit = (req, res) => {
   const { id } = req.params;
@@ -52,15 +25,6 @@ export const getUpload = (req, res) => {
 };
 export const postUpload = (req, res) => {
   const { title } = req.body;
-  const newVideo = {
-    title,
-    rating: 0,
-    comments: 0,
-    createdAt: "just now",
-    views: 0,
-    id: videos.length + 1,
-  };
-  videos.push(newVideo);
   return res.redirect("/");
 };
 

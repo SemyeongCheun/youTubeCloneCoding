@@ -5,7 +5,6 @@ import userRouter from "./routers/userRouter";
 import videosRouter from "./routers/videoRouter";
 
 const app = express();
-const PROT = 4000;
 const logger = morgan("dev");
 
 //////////////////////////////////////////여기 사이에서 코드 작성
@@ -21,7 +20,4 @@ app.use("/user", userRouter);
 
 //////////////////////////////////////////
 
-const handleListenting = () =>
-  console.log(`server listenting to http://localhost:${PROT}`);
-
-app.listen(PROT, handleListenting);
+export default app;
